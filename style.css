@@ -1,0 +1,487 @@
+@charset "UTF-8";
+
+/*=============== RESET ===============*/
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+@font-face {
+  font-family: "OngleipParkDahyeon";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "OngleipParkDahyeon", sans-serif;
+  font-size: 20px;
+  color: #5b2c1a;
+  background: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*=============== WRAP ===============*/
+#wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*===============HEADER===============*/
+header {
+  width: 100%;
+  height: 80px;
+  background: none; /* 배경 제거 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-top: 10px;
+}
+
+header .logo img {
+  width: 68px;
+  height: auto;
+  display: block;
+}
+
+/* 메뉴 */
+header .menu {
+  display: flex;
+  gap: 40px;
+}
+
+header .menu a {
+  color: #5b2c1a;
+  text-decoration: none;
+  font-weight: 500;
+}
+/*=============== MAIN HERO ===============*/
+#container {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* ✅ 세로 방향으로 배치 */
+  align-items: center;
+  padding: 80px 16px;
+}
+
+.hero {
+  text-align: center;
+}
+
+/* COOKIE */
+.hero-title {
+  font-size: 80px;
+  letter-spacing: 0.18em;
+  color: #451e0e;
+  margin-bottom: 12px;
+}
+
+/* A Bite of Happiness */
+.hero-subtitle {
+  font-size: 25px;
+  color: #8c5a3c;
+  margin-bottom: 8px;
+}
+.cookie-origin-box {
+  width: 100%;
+  max-width: 1200px; /* 사진 그리드 폭과 정렬 맞추기 */
+  margin: 0 auto 30px; /* 사진과 적당한 간격 */
+  padding-left: 0; /* 사진 시작점과 수평 정렬 */
+  text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 설명문 */
+.hero-desc {
+  font-size: 18px;
+  color: #a8795a;
+  max-width: 500px;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+.origin-title {
+  font-size: 27px;
+  color: #5b2c1a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.origin-text {
+  font-size: 18px;
+  color: #a8795a;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+}
+
+.cookie-origin h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #5b2c1a;
+  margin-bottom: 20px;
+  font-family: "OngleipParkDahyeon";
+}
+
+.cookie-origin-sub {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #8c5a3c;
+  letter-spacing: 0.04em;
+  margin-bottom: 70px;
+}
+.hero-sprite {
+  width: calc(1827px / 5);
+  height: 365px;
+  background: url("img/cookiee.png") no-repeat;
+  background-size: cover;
+  animation: run-cookie 1.9s infinite steps(5);
+
+  margin: 0 auto 32px;
+  display: block;
+}
+
+@keyframes run-cookie {
+  100% {
+    background-position: -1827px 0;
+  }
+}
+
+/*=============== FOOTER ===============*/
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  padding: 0 16px;
+  background: #ffffff;
+  color: #5b2c1a;
+  margin-top: 40px;
+}
+
+footer .sns {
+  display: flex;
+  gap: 34px;
+}
+
+footer .sns li.instagram a,
+footer .sns li.site a {
+  color: #5b2c1a;
+}
+
+/*=============== project  ===============*/
+
+.projects {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 240px; /* 📌 섹션을 크게 아래로 내림 */
+  text-align: center;
+}
+
+.projects-grid {
+  display: flex;
+  justify-content: center;
+  gap: 51px;
+}
+
+/* 모든 사진 크기 동일(세 번째 사진 기준) */
+.project-item {
+  width: 270px;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.project-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Hover 흰색 뿌연 효과 */
+.project-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s ease;
+}
+
+.project-item:hover img {
+  transform: scale(1.05);
+}
+
+.project-item:hover::after {
+  background: rgba(255, 255, 255, 0.405);
+}
+
+/*=============== RESPONSIVE ===============*/
+@media (max-width: 768px) {
+  header {
+    padding: 0 20px;
+  }
+
+  header .menu {
+    gap: 24px;
+  }
+
+  .hero-cookie {
+    width: 200px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+}
+
+/*photo*/
+
+.photo-list {
+  display: flex;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 80px auto 100px;
+  max-width: 1200px;
+}
+.photo .photo-list li {
+  width: 320px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto; /* 비율 유지 */
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  color: #8c5a3c;
+  font-size: 27px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.photo-list img {
+  width: 100%; /* li 폭에 맞게 꽉 채우기 */
+  height: 280px; /* 일정한 높이 유지 */
+  object-fit: cover; /* 비율 유지하면서 잘라내기 */
+  border-radius: 10px;
+  display: block;
+}
+
+.flavors-intro {
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: 30px;
+  color: #5b2c1a;
+}
+
+.flavors-intro h2 {
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.flavors-intro p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #8c5a3c;
+  letter-spacing: 0.03em;
+}
+.photo-list {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* 3 */
+
+.recipe-hero {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin: 30px auto 110px;
+  margin-top: 60px;
+}
+
+.recipe-hero h2 {
+  font-size: 34px;
+  color: #5b2c1a;
+  margin-bottom: 18px;
+}
+
+.recipe-hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #8c5a3c;
+  letter-spacing: 0.03em;
+}
+
+.recipe-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.recipe-card {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+/* 지피티좌우 */
+.recipe-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.recipe-image {
+  flex: 40%;
+}
+
+.recipe-image img {
+  width: 100%;
+  display: block;
+  border-radius: 13px;
+}
+
+.recipe-info {
+  flex: 1 1 50%;
+  text-align: left;
+}
+
+.recipe-title {
+  font-size: 30px;
+  color: #5b2c1a;
+  margin-bottom: 14px;
+}
+
+.recipe-summary {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #8c5a3c;
+  margin-bottom: 24px;
+}
+
+.recipe-more {
+  display: inline-block;
+  padding: 12px 34px;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid #8c5a3c;
+  background: #8c5a3c;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.recipe-more:hover {
+  background: #fff;
+  color: #8c5a3c;
+}
+
+.text-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-modal:target {
+  display: flex;
+}
+
+.text-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 780px;
+  max-height: 80vh;
+  padding: 40px 48px;
+  background: #fff9f2;
+  border-radius: 16px;
+  overflow-y: auto;
+  color: #5b2c1a;
+}
+
+.text-modal-content h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.text-modal-content h4 {
+  font-size: 20px;
+  margin: 24px 0 10px;
+}
+
+.text-modal-content ul,
+.text-modal-content ol {
+  padding-left: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.text-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 30px;
+  text-decoration: none;
+  color: #8c5a3c;
+}
